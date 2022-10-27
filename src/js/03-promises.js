@@ -22,15 +22,13 @@ function onFormSubmit(event) {
 }
 
 function onSuccess(result, position, delay) {
-  console.log({position, delay})
-    // Notiflix.Notify.success(result);
-  console.log(result)
+      Notiflix.Notify.success(result);
+  // console.log(result)
   }
 
 function onError(error, position, delay) {
-  console.log({position, delay})
-    // Notiflix.Notify.failure(error);
-  console.log(error)
+     Notiflix.Notify.failure(error);
+  // console.log(error)
   }
 
 function createPromise(position, delay) {
