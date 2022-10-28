@@ -21,14 +21,14 @@ function onFormSubmit(event) {
   }
 }
 
-function onSuccess(result, position, delay) {
-      Notiflix.Notify.success(result);
-  // console.log(result)
+function onSuccess({position, delay}) {
+      Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`)
   }
 
-function onError(error, position, delay) {
-     Notiflix.Notify.failure(error);
-  // console.log(error)
+function onError({position, delay}) {
+     Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+  // console.log(`❌ Rejected promise ${position} in ${delay}ms`)
   }
 
 function createPromise(position, delay) {
@@ -40,14 +40,15 @@ function createPromise(position, delay) {
     setTimeout(() => {
      
    if (shouldResolve) {
-     resolve(`✅ Fulfilled promise ${position} in ${delay}ms`)
+     resolve({position, delay})
   } else {
-    reject(`❌ Rejected promise ${position} in ${delay}ms`)
+    reject({position, delay})
   }
 }, delay)
   }) 
  
 }
+
 
 
 
